@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker image and push
+          command: |
+            export DATETIME=`date -u +"%Y%m%d%H%M"`
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker build . -t haoict/send2ereader:${CIRCLE_BRANCH}-${DATETIME}
+            docker push haoict/send2ereader:${CIRCLE_BRANCH}-${DATETIME}
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+                - /feature-.*/
