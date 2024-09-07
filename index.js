@@ -426,7 +426,7 @@ router.post('/upload', async (ctx, next) => {
       const outfile = resolvepath(join(dir, `${base}_cropped.pdf`))
       let p = new Promise((resolve, reject) => {
         let stderr = ''
-        const pdfcropmargins = spawn('pdfcropmargins', ['-s', '-u', '-o', outfile, basename(ctx.request.file.path)], {
+        const pdfcropmargins = spawn('pdfcropmargins', ['-p 10', '-o', outfile, basename(ctx.request.file.path)], {
           // stdio: 'inherit',
           cwd: dirname(ctx.request.file.path)
         })
