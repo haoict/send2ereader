@@ -426,7 +426,7 @@ router.post('/upload', async (ctx, next) => {
       const outfile = resolvepath(join(dir, `${base}_cropped.pdf`))
       let p = new Promise((resolve, reject) => {
         let stderr = ''
-        const pdfcropmargins = spawn('pdfcropmargins', ['-s', '-u', '-o', outfile, basename(ctx.request.file.path)], {
+        const pdfcropmargins = spawn('pdfcropmargins', ['-p 10', '-o', outfile, basename(ctx.request.file.path)], {
           // stdio: 'inherit',
           cwd: dirname(ctx.request.file.path)
         })
@@ -493,16 +493,16 @@ router.post('/upload', async (ctx, next) => {
   let messages = []
   if (ctx.request.file) {
     ctx.request.file.skip = true
-    messages.push('Upload successful! ' + (conversion ? 'Ebook was converted with ' + conversion + ' and sent' : 'Sent')+' to '+(info.agent.includes('Kobo') ? 'a Kobo device.' : (info.agent.includes('Kindle') ? 'a Kindle device.' : 'a device.')))
-    messages.push('Filename: ' + filename)
+    messages.push('Tải lên thành công! ' + (conversion ? 'Ebook được convert bằng ' + conversion + ' và gửi' : 'Gửi')+' tới '+(info.agent.includes('Kobo') ? 'máy Kobo.' : (info.agent.includes('Kindle') ? 'máy Kindle.' : 'máy nhận.')))
+    messages.push('Tên file: ' + filename)
   }
   if (url) {
-    messages.push("Added url: " + url)
+    messages.push("Đã gửi link: " + url) // Added url:
   }
 
   if (messages.length === 0) {
     flash(ctx, {
-      message: 'No file or url selected',
+      message: 'Chưa có file hay đường link nào', // No file or url selected
       success: false,
       key: key
     })
@@ -524,7 +524,7 @@ router.delete('/file/:key', async ctx => {
   const key = ctx.params.key.toUpperCase()
   const info = ctx.keys.get(key)
   if (!info) {
-    ctx.throw(400, 'Unknown key: ' + key)
+    ctx.throw(400, 'Mã không đúng: ' + key) //Unknown key
   }
   info.file = null
   ctx.body = 'ok'

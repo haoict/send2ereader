@@ -11,9 +11,10 @@
 
 <div class="wrapper">
 	<h1 class="center">Send to Kobo/Kindle</h1>
-
+	<h4 class="center" style="padding-left: 100px; font-style: italic;">by MayDocSachTot.com</h4>
+	
 	<div class="center">
-		<div style="font-size: 1.3em;">Unique key:</div>
+		<div style="font-size: 1.3em;">Mã bí mật:</div>
 		<div id="key">
 			<span id="keyoutput">––––</span>
 			<button id="keygen" title="Generate new key">
@@ -24,21 +25,26 @@
 		</div>
 	</div>
 
+	<br/>
+	<div class="center">
+		Truy cập <strong>Send.Sach.Chat</strong> trên thiết bị khác (máy tính/điện thoại) để gửi sách:<br/><a id="siteurl">https://send.sach.chat</a><br/>
+		<br/>
+		Sau đó quay lại đây để ấn tải về!
+		<br/>
+	</div>
 	<div class="center">
 		<div id="downloads">
 			<br/>
-			<div style="font-size: 1.3em;"><em>Downloads</em></div>
+			<div style="font-size: 1.3em;"><em>Tải về</em></div>
 			<a id="downloadlink" class="downloadlink"></a>
 		</div>
 		<div id="urls"></div>
 		<br/>
 	</div>
 	<hr/>
-	<br/>
-	<div class="center">
-		Visit this on other devices to send ebooks to this ereader:<br/><a id="siteurl">https://send.djazz.se</a><br/>
-		<br/>
-		Created by djazz. Source code on <a href="https://github.com/daniel-j/send2ereader" target="_blank">Github</a><br/>
+
+	<div class="center">	
+		By MayDocSachTot.com. Thanks to djazz's work.<br/>
 	</div>
 </div>
 
@@ -86,7 +92,7 @@ function pollFile () {
 			downloads.style.display = 'none'
 		}
 		if (urls) {
-			urlsnode.innerHTML = '<br/><div style="font-size: 1.3em;"><em>Urls</em></div>'
+			urlsnode.innerHTML = '<br/><div style="font-size: 1.3em;"><em>Link đã gửi:</em></div>'
 			urls.forEach(function (url) {
 				var urllink = document.createElement("a")
 				urllink.href = url
