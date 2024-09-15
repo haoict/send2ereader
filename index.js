@@ -535,7 +535,7 @@ router.get('/status/:key', async ctx => {
   const info = ctx.keys.get(key)
   if (!info) {
     ctx.response.status = 404
-    ctx.body = {error: 'Unknown key'}
+    ctx.body = {error: 'Mã không đúng: ' + key} //Unknown key
     return
   }
   if (info.agent !== ctx.get('user-agent')) {

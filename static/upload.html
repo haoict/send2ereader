@@ -4,19 +4,20 @@
 	<title>Send to Kobo/Kindle</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link rel="stylesheet" type="text/css" href="./style.css?o"/>
+	<link rel="stylesheet" type="text/css" href="./style.css"/>
+	<link rel="stylesheet" type="text/css" href="./upload.css"/>
 	<script src="./common.js"></script>
 </head>
 <body>
 
 <div class="wrapper">
 	<h1 class="center">Send to Kobo/Kindle</h1>
-	<h4 class="center" style="padding-left: 100px; font-style: italic;">by MayDocSachTot.com</h4>
+	<h4 class="center" style="margin: auto; font-style: italic;">by MayDocSachTot.com</h4>
 	<form action="./upload" method="post" enctype="multipart/form-data" id="uploadform">
 		<table style="margin: 0 auto;" cellpadding=0 cellspacing=0>
-			<tr><td class="right"><label for="keyinput"><strong>Mã bí mật</strong></label></td><td><input type="text" name="key" id="keyinput" autocomplete="off" pattern="...." placeholder="––––" required style="text-transform: uppercase;" maxlength=4/><div><i>Mở trang web này ở Kobo/Kindle để lấy mã</i></div></td></tr>
-			<tr><td class="right aligntop"><label for="fileinput"><strong>File ebook</strong></label><br/><em>EPUB, MOBI, PDF,<br/>TXT, CBZ, CBR</em></td><td class="aligntop"><label for="fileinput" id="choosebtn">Chọn file</label><input type="file" name="file" id="fileinput" accept=".txt,.epub,.mobi,.pdf,.cbz,.cbr,application/epub+zip,application/epub,application/x-mobipocket-ebook,application/pdf,application/vnd.comicbook+zip,application/vnd.comicbook-rar"/><br/><br/><div id="fileinfo"></div></td></tr>
-			<tr><td class="right"><label for="urlinput"><strong>Gửi link</strong></label><br/><em>Gửi link web đến máy đọc sách</em></td><td><input type="url" name="url" id="urlinput" autocomplete="off" style="width: 100%"></td></tr>
+			<tr><td class="right"><label for="keyinput"><strong>Mã bí mật</strong></label></td><td><input type="text" name="key" id="keyinput" autocomplete="off" pattern="...." placeholder="––––" required style="text-transform: uppercase;" maxlength=4/><br/><em>Mở trang web này ở Kobo/Kindle để lấy mã</em></td></tr>
+			<tr><td class="right aligntop"><label for="fileinput"><strong>File ebook</strong></label></td><td class="aligntop"><label for="fileinput" id="choosebtn">Chọn file</label><input type="file" name="file" id="fileinput" accept=".txt,.epub,.mobi,.pdf,.cbz,.cbr,application/epub+zip,application/epub,application/x-mobipocket-ebook,application/pdf,application/vnd.comicbook+zip,application/vnd.comicbook-rar"/><br/><br/><div id="fileinfo"></div><br/><em>EPUB, MOBI, PDF,<br/>TXT, CBZ, CBR</em></td></tr>
+			<tr><td class="right"><label for="urlinput"><strong>Gửi link</strong></label></td><td><input type="url" name="url" id="urlinput" autocomplete="off" style="width: 100%"><em>Gửi link web đến máy đọc sách</em></td></tr>
 			<tr><td class="right"><input type="checkbox" name="kepubify" id="kepubify" checked /></td><td><label for="kepubify"><strong>Convert sang KEPUB</strong> <em>(chỉ Kobo)</em></label></td></tr>
 			<tr><td class="right"><input type="checkbox" name="kindlegen" id="kindlegen" checked /></td><td><label for="kindlegen"><strong>KindleGen</strong> <em>(chỉ Kindle)</em></label></td></tr>
 			<tr><td class="right"><input type="checkbox" name="pdfcropmargins" id="pdfcropmargins" /></td><td><label for="pdfcropmargins"><strong>Bỏ viền file PDF</strong></label></td></tr>
@@ -173,14 +174,14 @@ uploadform.addEventListener('submit', function (e) {
 		console.log('upload error', req.status, req.responseText, req.responseType)
 		handleFlash({
 			success: false,
-			message: "Upload error - is the key correct?"
+			message: "Upload lỗi - Mã bí mật sai?"
 		})
 	}
 	req.onabort = function () {
 		console.log('aborted', req.status)
 		handleFlash({
 			success: false,
-			message: "Upload aborted"
+			message: "Upload bị hủy"
 		})
 	}
 	req.send(fd)

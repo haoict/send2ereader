@@ -1,0 +1,131 @@
+
+body {
+    font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.2em;
+    color: #666;
+}
+
+form {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+.right {
+    text-align: right;
+}
+
+.aligntop {
+    vertical-align: top;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+label {
+    font-weight: bold;
+}
+
+em {
+    font-size: 0.9em;
+    color: #666;
+}
+
+#choosebtn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#choosebtn:hover {
+    background-color: #0056b3;
+}
+
+#fileinfo {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+#uploadstatus {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #007bff;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
